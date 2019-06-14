@@ -1,5 +1,6 @@
 #include "Facturar.h"
 #include <iostream>
+#include "Cliente.h"
 using std::cout;
 using std::endl;
 Facturar::Facturar(){
@@ -18,7 +19,12 @@ void Facturar::openFile(){
 void Facturar::closeFile(){
     file.close();
 }
-void Facturar::crearFactura(Orden* orden){
+void Facturar::crearFactura(Orden* orden,vector<Persona*>personas){
     openFile();
+    file<<"**********************************************************\n";
+    file<<dynamic_cast<Cliente*>(personas[orden->getPoscliente()])->factura();
+    file<<orden->getNegocio();
+    file<<orden->getProducto();
+    file<<"**********************************************************\n";
     closeFile();
 }

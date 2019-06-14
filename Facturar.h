@@ -4,6 +4,7 @@
 #include "Orden.h"
 #include <sstream>
 #include <string>
+#include "Persona.h"
 using std::string;
 using std::stringstream;
 using std::ofstream;
@@ -14,7 +15,7 @@ class Facturar{
     public:
         void openFile();
         void closeFile();
-        void crearFactura(Orden*);
+        void crearFactura(Orden*,vector<Persona*>);
         Facturar();
 };
 #endif

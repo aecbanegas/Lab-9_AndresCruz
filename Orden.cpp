@@ -18,6 +18,12 @@ int Orden::getPosrepartidor(){
 int Orden::getPoscliente(){
     return poscliente;
 }
+string Orden::getNegocio(){
+    return negocio->toString();
+}
+string Orden::getProducto(){
+    return negocio->getProductos()[posproducto]->toString();
+}
 string Orden::toString(Cliente* cliente){
     stringstream imprimir;
     imprimir<<" Negocio: "<<negocio->toString()<<cliente->factura()<<" Producto: "<<negocio->getProductos()[posproducto]->toString();

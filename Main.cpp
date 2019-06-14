@@ -19,6 +19,7 @@ int main(){
     vector<Persona*> personas;
     vector<Orden*> procesando;
     vector<Orden*> terminadas;
+    Facturar* archivar=new Facturar();
     int opcmenu=0;
     while(opcmenu!=11){
         cout<<"     Menu Hugo"<<endl
@@ -230,7 +231,29 @@ int main(){
                 break;
             case 7:
                 {
-
+                    int posorden;
+                    cout<<"Ingrese la posicion de la orden:"<<endl;
+                    cin>>posorden;
+                    if(posorden<0||posorden>=procesando.size()){
+                        cout<<"No existe esa posicion!"<<endl;
+                    }else{
+                        char decision;
+                        cout<<"Desea confirmar o cancelar la orden: s=confirmar c=cancelar"<<endl;
+                        cin>>decision;
+                        if(decision=='s'){
+                            terminadas.push_back(procesando[posorden]);
+                            procesando.erase(procesando.begin()+posorden);
+                            terminadas[terminadas.size()-1]->cambioEstado(1);
+                            archivar->crearFactura(terminadas[terminadas.size()-1],personas);
+                        }else if(decision=='c'){
+                            terminadas.push_back(procesando[posorden]);
+                            procesando.erase(procesando.begin()+posorden);
+                            terminadas[terminadas.size()-1]->cambioEstado(2);
+                            archivar->crearFactura(terminadas[terminadas.size()-1],personas);
+                        }else{
+                            cout<<"Intentelo de nuevo!"<<endl;
+                        }
+                    }
                 }
                 break;
             case 8:
@@ -282,6 +305,23 @@ int main(){
                 }
                 break;
         }
+    }
+    //liberar memoria
+    for (int i = 0; i < negocios.size(); i++)
+    {
+        delete negocios[i];
+    }
+    for (int i = 0; i < personas.size(); i++)
+    {
+        delete personas[i];
+    }
+    for (int i = 0; i < procesando.size(); i++)
+    {
+        delete procesando[i];
+    }
+    for (int i = 0; i < terminadas.size(); i++)
+    {
+        delete terminadas[i];
     }
     return 0;
 }

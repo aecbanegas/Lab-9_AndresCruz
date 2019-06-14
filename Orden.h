@@ -16,6 +16,8 @@ class Orden{
         void cambioEstado(int);
         int getPosrepartidor();
         int getPoscliente();
+        string getNegocio();
+        string getProducto();
         string toString(Cliente*);
 };
 #endif

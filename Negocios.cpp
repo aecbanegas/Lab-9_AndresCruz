@@ -6,7 +6,7 @@ vector<Producto*> Negocios::getProductos(){
 }
 string Negocios::toString(){
     stringstream imprimir;
-    imprimir<<" Nombre: "<<nombre<<" Ubicacion: "<<ubicacion<<" Cantidad de locales: "<<locales<<"\n";
+    imprimir<<" Nombre: "<<nombre<<" Ubicacion: "<<ubicacion<<"\n";
     return imprimir.str(); 
 }
 Negocios::Negocios(string nom,string ubic,int loc,vector<Producto*> produc){
