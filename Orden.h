@@ -1,17 +1,21 @@
 #ifndef ORDEN_H
 #define ORDEN_H
 #include "Negocios.h"
+#include "Cliente.h"
 #include <string>
 using std::string;
 class Orden{
     private:
         Negocios* negocio;
-        string datoscliente;
-        string datosrepartidor;
+        int poscliente;
+        int posrepartidor;
+        int posproducto;
         int estado;
     public:
-        Orden(Negocios*,string,string);
+        Orden(Negocios*,int,int,int);
         void cambioEstado(int);
-
+        int getPosrepartidor();
+        int getPoscliente();
+        string toString(Cliente*);
 };
 #endif

@@ -19,5 +19,11 @@ int Cliente::Ganancias(){
 }
 string Cliente::toString(){
     stringstream imprimir;
+    imprimir<<"Cliente Nombre: "<<nombre<<" Identidad: "<<identidad<<" Edad: "<<edad<<"\nDireccion: "<<direccion<<" Telefono: "<<telefono<<" Tajeta: "<<tarjeta<<" Ganacias: "<<Ganancias()<<"\n";
+    return imprimir.str();
+}
+string Cliente::factura(){
+    stringstream imprimir;
+    imprimir<<"Nombre: "<<nombre<<" Edad: "<<edad<<" Ubicacion: "<<direccion<<"\n";
     return imprimir.str();
 }

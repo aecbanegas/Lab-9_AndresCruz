@@ -12,6 +12,6 @@ class Cliente:public Persona{
         void aumPedido();
         virtual string toString();
         virtual int Ganancias();
-        
+        string factura();
 };
 #endif

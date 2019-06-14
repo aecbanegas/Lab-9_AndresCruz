@@ -13,10 +13,12 @@ void Facturar::openFile(){
     }else{
         file.open(nombre.str());
     }
+    cont++;
 }
 void Facturar::closeFile(){
     file.close();
 }
 void Facturar::crearFactura(Orden* orden){
-
+    openFile();
+    closeFile();
 }

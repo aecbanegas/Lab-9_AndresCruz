@@ -9,10 +9,11 @@ class Negocios{
         string nombre;
         string ubicacion;
         int locales;
-        vector<Producto> productos;
+        vector<Producto*> productos;
     public:
-        Negocios(string, string,int,vector<Producto>);
+        Negocios(string, string,int,vector<Producto*>);
         string toString();
-        vector<Producto> getProductos();
+        vector<Producto*> getProductos();
+        ~Negocios();
 };
 #endif

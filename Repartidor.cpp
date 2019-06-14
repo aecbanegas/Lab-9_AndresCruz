@@ -18,5 +18,6 @@ int Repartidor::Ganancias(){
 }
 string Repartidor::toString(){
     stringstream imprimir;
+    imprimir<<"Repartidor Nombre: "<<nombre<<" Identidad: "<<identidad<<" Edad: "<<edad<<"\nPlaca: "<<placa<<" Zona: "<<zona<<" Ganacias: "<<Ganancias()<<"\n";
     return imprimir.str();
 }

@@ -14,9 +14,10 @@ void Empleado::aumOrden(){
     orden++;
 }
 int Empleado::Ganancias(){
-    return (orden*40);
+    return (30*orden+orden);
 }
 string Empleado::toString(){
     stringstream imprimir;
+    imprimir<<"Empleado Nombre: "<<nombre<<" Identidad: "<<identidad<<" Edad: "<<edad<<"\nHoras de Trabajo: "<<horas<<" Local:"<<local<<" Ganacias: "<<Ganancias()<<"\n";
     return imprimir.str();
 }
