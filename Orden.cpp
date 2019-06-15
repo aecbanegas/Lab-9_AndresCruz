@@ -1,5 +1,7 @@
 #include "Orden.h"
 #include <sstream>
+#include "Repartidor.h"
+#include "Empleado.h"
 using std::stringstream;
 Orden::Orden(Negocios* neg, int poscli,int pos,int posrepa){
     negocio=neg;
@@ -9,8 +11,20 @@ Orden::Orden(Negocios* neg, int poscli,int pos,int posrepa){
     posrepartidor=posrepa;
     //0= en proceso 1= confirmado 2=cancelado
 }
+void Orden::aumOrdenes(vector<Persona*> personas){
+    dynamic_cast<Cliente*>(personas[poscliente])->aumPedido();
+    dynamic_cast<Repartidor*>(personas[posrepartidor])->aumOrden();
+    for(int i=0;i<personas.size();i++){
+        if(dynamic_cast<Empleado*>(personas[i])!=NULL){
+            dynamic_cast<Empleado*>(personas[i])->aumOrden();
+        }
+    }
+}
 void Orden::cambioEstado(int est){
     estado=est;
+}
+int Orden::getEstado(){
+    return estado;
 }
 int Orden::getPosrepartidor(){
     return posrepartidor;

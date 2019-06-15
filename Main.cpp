@@ -184,7 +184,7 @@ int main(){
                     }else{
                         cout<<"Ingrese la posicion en que se ubica el cliente: "<<endl;
                         cin>>poscliente;
-                        if((poscliente<0||poscliente>=personas.size())){
+                        if(!(poscliente<0||poscliente>=personas.size())){
                             if ((dynamic_cast<Cliente*>(personas[posnegocio])!=NULL))
                             {
                                 cout<<"Ingrese la posicion del repartidor:"<<endl;
@@ -245,11 +245,13 @@ int main(){
                             procesando.erase(procesando.begin()+posorden);
                             terminadas[terminadas.size()-1]->cambioEstado(1);
                             archivar->crearFactura(terminadas[terminadas.size()-1],personas);
+                            terminadas[terminadas.size()-1]->aumOrdenes(personas);
                         }else if(decision=='c'){
                             terminadas.push_back(procesando[posorden]);
                             procesando.erase(procesando.begin()+posorden);
                             terminadas[terminadas.size()-1]->cambioEstado(2);
                             archivar->crearFactura(terminadas[terminadas.size()-1],personas);
+                            terminadas[terminadas.size()-1]->aumOrdenes(personas);
                         }else{
                             cout<<"Intentelo de nuevo!"<<endl;
                         }

@@ -25,6 +25,11 @@ void Facturar::crearFactura(Orden* orden,vector<Persona*>personas){
     file<<dynamic_cast<Cliente*>(personas[orden->getPoscliente()])->factura();
     file<<orden->getNegocio();
     file<<orden->getProducto();
+    if(orden->getEstado()==1){
+        file<<"Estado de la orden::::::::::::::: CONFIRMADO\n";
+    }else{
+        file<<"Estado de la orden::::::::::::::::: CANCELADO\n";
+    }
     file<<"**********************************************************\n";
     closeFile();
 }

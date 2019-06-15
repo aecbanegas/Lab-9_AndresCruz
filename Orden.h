@@ -2,6 +2,7 @@
 #define ORDEN_H
 #include "Negocios.h"
 #include "Cliente.h"
+#include "Persona.h"
 #include <string>
 using std::string;
 class Orden{
@@ -18,6 +19,8 @@ class Orden{
         int getPoscliente();
         string getNegocio();
         string getProducto();
+        int getEstado();
         string toString(Cliente*);
+        void aumOrdenes(vector<Persona*>);
 };
 #endif
