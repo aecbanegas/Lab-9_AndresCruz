@@ -160,7 +160,7 @@ int main(){
                 {
                     for (int i = 0; i < personas.size(); i++)
                     {
-                        cout<<"Posicion "<<i+1<<" Tipo: "<<personas[i]->toString();
+                        cout<<"Posicion "<<i<<" Tipo: "<<personas[i]->toString();
                     }
                 }
                 break;
